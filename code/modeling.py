@@ -9,7 +9,8 @@ from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.compose import ColumnTransformer
 from imblearn.pipeline import Pipeline as ImbPipeline
 from imblearn.over_sampling import SMOTE
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import RandomForestClassifier, StackingClassifier
+from sklearn.linear_model import LogisticRegression
 from xgboost import XGBClassifier
 from sklearn.metrics import accuracy_score, f1_score, classification_report, confusion_matrix, roc_curve, auc
 import joblib
@@ -70,6 +71,18 @@ def run_optimized_experiment(model_name, model, param_grid):
     mlflow.set_experiment(EXPERIMENT_NAME)
     
     with mlflow.start_run(run_name=model_name):
+        # Custom handling for Stacking
+        if model == "STACKING_PLACEHOLDER":
+            base_learners = [
+                ('rf', RandomForestClassifier(n_estimators=100, max_depth=10, random_state=42)),
+                ('xgb', XGBClassifier(n_estimators=100, max_depth=3, use_label_encoder=False, eval_metric='logloss', random_state=42))
+            ]
+            model = StackingClassifier(
+                estimators=base_learners,
+                final_estimator=LogisticRegression(),
+                cv=5
+            )
+
         # Build Imbalanced Pipeline (SMOTE happens only during fit)
         pipeline = ImbPipeline(steps=[
             ('preprocessor', preprocessor),
@@ -132,6 +145,12 @@ if __name__ == "__main__":
                 'classifier__learning_rate': [0.01, 0.1],
                 'classifier__n_estimators': [100, 200],
                 'classifier__max_depth': [3, 6]
+            }
+        },
+        "Stacking_Ensemble": {
+            "model": "STACKING_PLACEHOLDER",  # Will handle in run_optimized_experiment
+            "params": {
+                'classifier__cv': [3, 5]
             }
         }
     }
