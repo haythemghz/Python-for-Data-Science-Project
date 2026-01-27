@@ -22,6 +22,9 @@ The repository provides a complete example based on **Bank Customer Churn Predic
 7. **Week 11:** Frontend Development with **React**
 8. **Week 12-13:** Containerization & Deployment with **Docker**
 
+## Project Architecture
+![Project Architecture](data/project_architecture.png)
+
 ## Repository Structure
 - `cours/`: Course notes and slides (PDF).
 - `code/`: Structured and modular Python scripts.
