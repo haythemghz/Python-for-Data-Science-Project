@@ -12,15 +12,14 @@ The repository provides a complete example based on **Bank Customer Churn Predic
 > [!IMPORTANT]
 > This is a **Synopsis** (baseline example). Each team must choose their own dataset and objective, which must be validated by the tutor before proceeding.
 
-## 13-Week Roadmap
-1. **Week 1-2:** Environment Setup & Web Scraping (Optional)
-2. **Week 3:** Exploratory Data Analysis (EDA)
-3. **Week 4-5:** Data Preprocessing & Feature Engineering
-4. **Week 6-7:** Advanced Modeling (Ensembling & Boosting)
-5. **Week 8:** Experiment Tracking with **MLflow**
-6. **Week 9-10:** Backend Development with **FastAPI**
-7. **Week 11:** Frontend Development with **React**
-8. **Week 12-13:** Containerization & Deployment with **Docker**
+## 7-Week Roadmap
+1. **Week 1:** Setup, Scraping & EDA
+2. **Week 2:** Preprocessing & Feature Engineering
+3. **Week 3:** Modeling (Boosting) \& MLflow
+4. **Week 4:** API Development (FastAPI)
+5. **Week 5:** Frontend Development (React)
+6. **Week 6:** Containerization (Docker)
+7. **Week 7:** Deployment & Final Review
 
 ## Project Architecture
 ![Project Architecture](data/project_architecture.png)
