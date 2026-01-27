@@ -3,43 +3,65 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 
-def run_eda(file_path="data/bank_churn.csv"):
+def run_advanced_eda(file_path="data/bank_churn.csv"):
     """
-    Performs Exploratory Data Analysis on the bank churn dataset.
+    Performs Advanced Exploratory Data Analysis on the bank churn dataset.
     """
     df = pd.read_csv(file_path)
+    # Drop non-predictive columns for visualization
+    df_plot = df.drop(['RowNumber', 'CustomerId', 'Surname'], axis=1)
     
-    print("--- Dataset Info ---")
-    print(df.info())
+    print("--- Dataset Shape ---")
+    print(df.shape)
     
-    print("\n--- Summary Statistics ---")
-    print(df.describe())
-    
-    print("\n--- Missing Values ---")
-    print(df.isnull().sum())
-    
-    # Visualizations
-    plt.figure(figsize=(10, 6))
-    sns.countplot(x='Exited', data=df, palette='viridis')
-    plt.title('Churn Count (Target Variable)')
-    plt.savefig('data/churn_distribution.png')
+    # 1. Target Imbalance Analysis
+    plt.figure(figsize=(8, 5))
+    df['Exited'].value_counts(normalize=True).plot(kind='bar', color=['skyblue', 'salmon'])
+    plt.title('Churn Proportion (0: Stayed, 1: Exited)')
+    plt.ylabel('Percentage')
+    plt.savefig('data/target_imbalance.png')
     plt.close()
     
-    plt.figure(figsize=(12, 6))
-    sns.boxplot(x='Exited', y='Balance', data=df)
-    plt.title('Balance vs Churn')
-    plt.savefig('data/balance_vs_churn.png')
+    # 2. Categorical Analysis: Impact on Churn
+    categorical_features = ['Geography', 'Gender', 'HasCrCard', 'IsActiveMember', 'NumOfProducts']
+    fig, axes = plt.subplots(3, 2, figsize=(15, 18))
+    axes = axes.flatten()
+    
+    for i, feature in enumerate(categorical_features):
+        sns.countplot(x=feature, hue='Exited', data=df, ax=axes[i], palette='muted')
+        axes[i].set_title(f'Churn by {feature}')
+        axes[i].legend(title='Exited', loc='upper right')
+        
+    plt.tight_layout()
+    plt.savefig('data/categorical_impact.png')
     plt.close()
     
-    # Correlation Matrix
-    numeric_df = df.select_dtypes(include=[np.number])
-    plt.figure(figsize=(12, 10))
-    sns.heatmap(numeric_df.corr(), annot=True, cmap='coolwarm', fmt='.2f')
-    plt.title('Correlation Matrix')
-    plt.savefig('data/correlation_matrix.png')
+    # 3. Numerical Analysis: Outlier Detection using Boxplots
+    numerical_features = ['CreditScore', 'Age', 'Tenure', 'Balance', 'EstimatedSalary']
+    plt.figure(figsize=(15, 10))
+    for i, feature in enumerate(numerical_features):
+        plt.subplot(2, 3, i+1)
+        sns.boxplot(y=df[feature], x=df['Exited'], palette='Set2')
+        plt.title(f'{feature} Distribution by Churn')
+    
+    plt.tight_layout()
+    plt.savefig('data/numerical_boxplots.png')
     plt.close()
     
-    print("\nEDA completed. Plots saved in 'data/' directory.")
+    # 4. Multivariate Analysis: Pairplot (Sampled for performance)
+    sns.pairplot(df_plot.sample(1000), hue='Exited', diag_kind='kde', palette='husl')
+    plt.savefig('data/multivariate_pairplot.png')
+    plt.close()
+    
+    # 5. Correlation Heatmap (Focusing on Target)
+    plt.figure(figsize=(10, 8))
+    corr = df_plot.corr()
+    sns.heatmap(corr, annot=True, cmap='coolwarm', fmt='.2f', linewidths=0.5)
+    plt.title('Feature Correlation Heatmap')
+    plt.savefig('data/correlation_heatmap_v2.png')
+    plt.close()
+
+    print("\nAdvanced EDA completed. New plots saved in 'data/' directory.")
 
 if __name__ == "__main__":
-    run_eda()
+    run_advanced_eda()
