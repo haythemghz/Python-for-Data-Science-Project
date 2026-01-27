@@ -12,6 +12,14 @@ The repository provides a complete example based on **Bank Customer Churn Predic
 > [!IMPORTANT]
 > This is a **Synopsis** (baseline example). Each team must choose their own dataset and objective, which must be validated by the tutor before proceeding.
 
+## Installation & Setup
+To run this project locally, clone the repository and install the dependencies:
+```bash
+git clone https://github.com/haythemghz/Python-for-Data-Science-Project.git
+cd Python-for-Data-Science-Project
+pip install -r requirements.txt
+```
+
 ## 7-Week Roadmap
 1. **Week 1:** Setup, Scraping & EDA
 2. **Week 2:** Preprocessing & Feature Engineering
