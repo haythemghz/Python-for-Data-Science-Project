@@ -1,0 +1,40 @@
+# Python for Data Science 2: Guided Machine Learning Project
+
+**University:** Tek-Up  
+**Group:** ING-4-SDIA  
+**Tutor:** [Haythem Ghazouani](https://github.com/haythemghz)
+
+## Course Overview
+This repository contains the materials for the **Python for Data Science 2** module. This is a 100% project-based course where you will learn to build, track, and deploy a complete Machine Learning solution.
+
+### Project Synopsis
+The repository provides a complete example based on **Bank Customer Churn Prediction**. 
+> [!IMPORTANT]
+> This is a **Synopsis** (baseline example). Each team must choose their own dataset and objective, which must be validated by the tutor before proceeding.
+
+## 13-Week Roadmap
+1. **Week 1-2:** Environment Setup & Web Scraping (Optional)
+2. **Week 3:** Exploratory Data Analysis (EDA)
+3. **Week 4-5:** Data Preprocessing & Feature Engineering
+4. **Week 6-7:** Advanced Modeling (Ensembling & Boosting)
+5. **Week 8:** Experiment Tracking with **MLflow**
+6. **Week 9-10:** Backend Development with **FastAPI**
+7. **Week 11:** Frontend Development with **React**
+8. **Week 12-13:** Containerization & Deployment with **Docker**
+
+## Repository Structure
+- `cours/`: Course notes and slides (PDF).
+- `code/`: Structured and modular Python scripts.
+- `tutos/`: Step-by-step tutorials (PDF).
+- `data/`: Datasets and generated visualizations.
+
+## How to use this repository
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/haythemghz/Python-for-Data-Science-Project.git
+   ```
+2. Follow the tutorials in the `tutos/` folder step-by-step.
+3. Use the `code/` folder as a reference for structuring your own project.
+
+---
+*© 2025-2026 Haythem Ghazouani - Tek-Up University*
