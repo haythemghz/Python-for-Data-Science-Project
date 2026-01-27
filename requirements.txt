@@ -11,3 +11,6 @@ fastapi
 uvicorn
 pydantic
 pdflatex
+joblib
+imbalanced-learn
+python-multipart
