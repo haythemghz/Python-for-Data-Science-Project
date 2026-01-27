@@ -26,6 +26,7 @@ The repository provides a complete example based on **Bank Customer Churn Predic
 ![Project Architecture](data/project_architecture.png)
 
 ## Repository Structure
+- `guide_projet.pdf`: Detailed global project guide (Full Roadmap).
 - `cours/`: Course notes and slides (PDF).
 - `code/`: Structured and modular Python scripts.
 - `tutos/`: Step-by-step tutorials (PDF).
