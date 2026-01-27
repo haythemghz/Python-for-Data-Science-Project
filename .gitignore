@@ -19,12 +19,14 @@ venv/
 # Data & OS
 .DS_Store
 Thumbs.db
-data/bank_churn.csv
-data/financial_news.csv
+# data/bank_churn.csv
+# data/financial_news.csv
 
-# Keep PDFs
+# Keep PDFs and Data Synopsis
 !*.pdf
 !README.md
 !code/*.py
 !tutos/*.pdf
 !cours/*.pdf
+!data/*.csv
+!data/*.png
