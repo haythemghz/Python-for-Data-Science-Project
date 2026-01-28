@@ -25,7 +25,7 @@ function App() {
     <div className="App">
       <header className="dashboard-header">
         <h1>Bank Customer Churn Dashboard</h1>
-        <p>Advanced Machine Learning Prediction System • ING-4-SDIA</p>
+        <p>Advanced Machine Learning Prediction System • End-to-End MLOps</p>
       </header>
 
       <main className="grid-layout">
@@ -78,7 +78,7 @@ function App() {
       </main>
 
       <footer style={{ marginTop: '4rem', padding: '2rem', textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.75rem', borderTop: '1px solid var(--glass-border)' }}>
-        <p>© 2026 Tek-Up University • Advanced Python for Data Science • Tutor: Haythem Ghazouani</p>
+        <p>© 2026 • Advanced Python for Data Science • Tutor: Haythem Ghazouani</p>
       </footer>
     </div>
   );

@@ -1,7 +1,5 @@
 # Python for Data Science 2: Guided Machine Learning Project
 
-**University:** Tek-Up  
-**Group:** ING-4-SDIA  
 **Tutor:** [Haythem Ghazouani](https://github.com/haythemghz)
 
 ## Course Overview
@@ -48,4 +46,4 @@ pip install -r requirements.txt
 3. Use the `code/` folder as a reference for structuring your own project.
 
 ---
-*© 2025-2026 Haythem Ghazouani - Tek-Up University*
+*© 2025-2026 Haythem Ghazouani*
